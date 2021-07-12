@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+
+		.container{
+			width: 1000px;
+			height: 1000px;
+			margin: 0 auto;
+			padding: 25px;
+			background-image:url('/img/cellphone.PNG');
+			background-repeat: no-repeat;
+			background-size: 1000px;
+		}
+		.container h1{
+			text-align: left;
+			padding: 5px 5px 15px 15px;
+			color: #333;
+			margin-bottom: 20px;
+		}
+		.body{
+			width:380px;
+			height: 830px;
+			margin: 60px 0px 0px 275px;
+		}
+		.login{
+			text-align: right;
+		}
+		.login a{
+			text-decoration: none;
+			color:#333;
+			font-weight: bold;
+		}
+		.roomContainer{
+		
+			width: 355px;
+			height: 650px;
+			overflow: auto;
+			margin-left: 15px;
+		}
+		.roomList{
+			border: none;
+			border-collapse: collapse;
+		}
+		.roomList th{
+			background-color: #fff;
+		}
+		.roomList td{
+			border: 1px solid #333;
+			color: #333;
+		}
+		.roomList .num{
+			width: 75px;
+			text-align: center;
+			display: none;
+		}
+		.roomList .room{
+			width: 270px;
+			padding-left: 10px;
+			
+		}
+		.roomList .go{
+			width: 71px;
+			text-align: center;
+		}
+		button{
+			background-color: #333;
+			font-size: 14px;
+			color: #fff;
+			border: 1px solid #000;
+			border-radius: 5px;
+			padding: 3px;
+			margin: 3px;
+		}
+		.inputTable {
+			margin-left: 15px;
+			margin-bottom: 20px;
+		}
+		.inputTable span{
+			font-size: 20px;
+		}
+		.inputTable input{
+			width: 240px;
+			height: 25px;
+		}
