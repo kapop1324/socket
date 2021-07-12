@@ -72,7 +72,7 @@
 		});
 	}
 </script>
-<body>
+<body> 
 	<div class="container">
 		<div class="body">
 			<div class="login">
