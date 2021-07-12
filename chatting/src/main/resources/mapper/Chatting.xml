@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ryu.chatting.model.dao.ChattingDao">
+
+	<select id="login" parameterType="Map" resultType="User">
+		select * from user where id = #{id} and pw = #{pw}
+	</select>
+	
+	<insert id="register" parameterType="Map">
+		insert into user(id,pw) values(#{id},#{pw})
+	</insert>
+	
+	<insert id="createroom" parameterType="HashMap">
+		insert into room(title,master) values(#{title},#{master})
+	</insert>
+	
+	<insert id="chattinglog" parameterType="HashMap">
+		insert into chattinglog(roomnumber,msg,user) values(#{roomnumber},#{msg},#{user})
+	</insert>
+	
+	<select id="getroom" resultType="Room">
+		select * from room;
+	</select>
+	
+	<select id="getmsg" parameterType="Map" resultType="Chattinglog">
+		select * from chattinglog where roomnumber = #{roomnum}
+	</select>
+	
+</mapper>

@@ -1,0 +1,271 @@
+@charset "UTF-8";
+
+li, ul{
+	list-style: none;
+	color : white;
+}
+
+#main{
+	width:2600px; 
+	height: 2000px;
+}
+
+#maincol1{
+	background-color: #1f2940;
+	max-width: 300px;
+	padding-left: 40px;
+}
+
+#nav_logo{
+	color: white;
+	margin : 20px 0px 0px 25px;
+	font-size: 25px;
+}
+
+
+
+#nav_img img{
+	width:100px;
+	height:100px;
+	margin:100px 0px 0px 65px;
+}
+
+#nav_img label{
+	color: white;
+	font-size:20px;
+	margin : 20px 0px 0px 56px;
+}
+#nav_category label{
+	color:gray;
+	font-size: 15px;
+	margin:100px 0px 0px 40px;
+}
+
+#maincol1 ul{
+	margin : 20px 0px 0px 5px;
+}
+
+#maincol1 li{
+	
+	font-size: 25px;
+	margin-bottom: 20px;
+}
+
+#maincol1 a{
+	color:white;
+}
+
+#maincol2{
+	background-color: #141b2d;
+
+}
+
+#yearly_head h1{
+	font-size: 30px;
+	font-weight: bold;
+	color : lightgray;
+	margin : 50px 0px 0px 220px;
+}
+
+#yearly_select{
+	margin: 200px 0px 0px 100px;
+}
+
+#yearly_select select{
+	width : 200px;
+	height : 50px;
+	font-size: 25px;
+	padding-left: 10px; 
+
+}
+
+#yearly_spend{
+	margin-top: 20px;
+	
+}
+
+#yearly_spend2 ,#yearly_accountspend, #yearly_cardspend{
+	margin-top: 20px;
+	
+}
+
+#chart .bb-title  { font-size: 20px; font-weight: bold; }
+
+ #accountchart, #cardchart , #chart2, #incomechart{
+	
+	width:1500px;
+}
+
+#chart{
+	background-color: #1f2940;
+	width:1500px;
+}
+
+
+
+.modal-title{
+	margin-left:10px;
+}
+.modal-dialog{
+	max-width:1000px;
+	height: 1200px;
+}
+.modal-body{
+	width: 950px; 
+	margin-left:20px;
+}
+
+.modal-dialog .row{
+	margin:0px;
+
+}
+
+.bb text{
+	fill: #fff;
+}
+
+.bb-axis-y text, .bb-axis-y2 text, .bb-axis-x text, .bb-axis-x2 text .bb-tick{
+  fill: #fff;
+  
+}
+
+.bb-axis line, .bb-axis .domain{
+
+  stroke: #fff;
+}
+
+
+#yearly_spend{
+	width:1600px;
+	padding: 50px 0px 0px 40px;
+	height:400px;
+	margin-left:196px;
+	border-radius:20px;
+	background-color:#1f2940;
+}
+
+#yearly_spend label{
+	font-size:25px;
+	color: lightgray;
+	margin: 0px 0px 0px 16px;
+}
+
+
+#incomechart .bb-axis .domain{
+	stroke: transparent;
+}
+
+#yearly_spend2_col1{
+	
+	padding: 30px 0px 0px 40px;
+	margin-left:210px;
+	border-radius:20px;
+	background-color:#1f2940;
+	max-width: 985px;
+}
+
+#yearly_spend2_col1 label{
+	font-size:25px;
+	color: lightgray;
+	margin: 0px 0px 0px 16px;
+}
+
+#yearly_spend2_col2{
+	width:500px;
+	padding: 50px 0px 0px 40px;
+	height:400px;
+	margin-left:20px;
+	border-radius:20px;
+	background-color:#1f2940;
+	max-width: 600px;
+}
+
+#incomechart{
+	background-color: transparent;
+	width:900px;
+}
+
+#restchart{
+	background-color: transparent;
+	width:700px;
+	height:200px;
+}
+
+#restchart .bb-chart-arcs-gauge-min, #restchart .bb-chart-arcs-gauge-max{
+	display:none;
+}
+
+#restchart .bb-gauge-value{
+	fill:lightgray;
+}
+
+#total, #rest{
+	font-size:20px;
+	color:lightgray;
+	margin: 0px 0px 0px 16px;
+}
+
+#yearly_spend2_col2 span{
+	font-size:20px;
+	color:lightgray;
+	
+}
+
+#yearly_spend3{
+	margin-top:20px;
+	margin-left:5px;
+}
+
+#yearly_spend3_col1{
+	padding: 50px 0px 0px 40px;
+	height:550px;
+	margin-left:190px;
+	border-radius:20px;
+	background-color:#1f2940;
+	max-width: 800px;
+}
+
+#yearly_spend3_col2{
+	padding: 50px 0px 0px 40px;
+	height:550px;
+	margin-left:10px;
+	border-radius:20px;
+	background-color:#1f2940;
+	max-width: 800px;
+}
+
+#yearly_spend4{
+	margin-top:20px;
+	margin-left:5px;
+}
+
+#yearly_spend4_col1{
+	padding: 50px 0px 0px 40px;
+	height:450px;
+	margin-left:190px;
+	border-radius:20px;
+	background-color:#1f2940;
+	max-width: 400px;
+}
+
+#yearly_spend4_col2{
+	padding: 50px 0px 0px 40px;
+	height:450px;
+	margin-left:10px;
+	border-radius:20px;
+	background-color:#1f2940;
+	max-width: 795px;
+}
+
+
+#yearly_spend4_col3{
+	padding: 50px 0px 0px 40px;
+	height:450px;
+	margin-left:10px;
+	border-radius:20px;
+	background-color:#1f2940;
+	max-width: 400px;
+}
+
+
+
