@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+
+		.container{
+			width: 1000px;
+			height: 1000px;
+			margin: 0 auto;
+			padding: 25px;
+			background-image:url('/img/cellphone.PNG');
+			background-repeat: no-repeat;
+			background-size: 1000px;
+		}
+		.container h1{
+			text-align: center;
+			padding: 5px 5px 0px 15px;
+			color: #333;
+			margin-bottom: 20px;
+			margin-top: 200px;
+			font-size: 50px;
+		}
+		.body{
+			width:380px;
+			height: 830px;
+			margin: 60px 0px 0px 275px;
+		}
+		.form{
+		margin-top: 50px;
+		}
+		.form input{
+			width:250px;
+			height: 50px;
+			margin-left: 70px;
+			text-align: center;
+			font-size: 25px;
+			border-radius: 10px;
+			border: 3px solid #333;
+		}
+		.form button{
+			color:white;
+			background-color: #333;
+			border:3px solid #333;
+			border-radius: 10px;
+			margin-top: 60px;
+			margin-left: 120px;
+			height: 50px;
+			width: 150px;
+			text-align: center;
+			font-size: 20px;
+		
+		}
+	
+		

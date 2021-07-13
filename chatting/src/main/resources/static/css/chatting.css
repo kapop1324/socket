@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+
+		.container{
+			width: 1000px;
+			height: 1000px;
+			margin: 0 auto;
+			padding: 25px;
+			background-image:url('/img/cellphone.PNG');
+			background-repeat: no-repeat;
+			background-size: 1000px;
+		}
+		.container h1{
+			text-align: left;
+			padding: 5px 5px 0px 15px;
+			color: #333;
+			margin-bottom: 20px;
+		}
+		.body{
+			width:380px;
+			height: 830px;
+			margin: 60px 0px 0px 275px;
+		}
+		.chating{
+			width : 350px;
+			margin-left: 10px;
+			padding-left: 10px;
+			border-top:1px solid #333;
+			height: 650px;
+			overflow: auto;
+		}
+		.me{
+			text-align: left;
+			margin-right: 20px;
+			font-size: 20px;
+			border: 1px solid #333;
+			background-color: #333;
+			color:white;
+			padding:10px;
+			height:20px;
+			border-radius: 10px;
+			width:315px;
+		}
+		.others{
+			text-align: left;
+			font-size: 20px;
+			background-color: gray;
+			color:white;
+			padding:10px;
+			height:20px;
+			border-radius: 10px;
+			width: 315px;
+		}
+		#yourMsg {
+			margin-left: 20px;
+			margin-top: 30px;
+		}
+		#yourMsg button{
+			background-color: #333;
+			font-size: 14px;
+			color: #fff;
+			border: 1px solid #000;
+			border-radius: 5px;
+			margin: 3px;
+			width:95px;
+			height: 30px;
+		}
+		#yourMsg input{
+			width: 230px;
+			height: 30px;
+		}
+		
