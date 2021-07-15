@@ -103,6 +103,12 @@ public class MainController {
 			return "chat";
 		}
 		
+		@GetMapping("/wait")
+		public String waitrandom() {
+			
+			return "wait";
+		}
+		
 
 		
 }

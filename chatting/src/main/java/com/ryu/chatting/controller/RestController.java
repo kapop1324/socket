@@ -62,7 +62,7 @@ public class RestController {
 	
 	@GetMapping("/getRoom")
 	public ResponseEntity<List<Room>> getRoom(@RequestParam Map map){
-		
+		System.out.println("?");
 		roomList = chattingservice.getroom();
 		
 		return new ResponseEntity<List<Room>>(roomList,HttpStatus.OK);

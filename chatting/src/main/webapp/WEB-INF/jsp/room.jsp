@@ -9,9 +9,7 @@
 <link rel="stylesheet" href="${root }/css/room.css">
 <meta charset="UTF-8">
 	<title>Room</title>
-</head>
-
-<script type="text/javascript">
+	<script type="text/javascript">
 	var ws;
 	window.onload = function(){
 		getRoom();
@@ -72,6 +70,9 @@
 		});
 	}
 </script>
+</head>
+
+
 <body> 
 	<div class="container">
 		<div class="body">
@@ -85,9 +86,13 @@
 					<a href="/logout">Logout</a>
 				</c:if>
 			</span>
-			<span style="font-weight:bold;">&nbsp/&nbsp</span>
+			<span style="font-weight:bold;">&nbsp;/&nbsp;</span>
 			<span>
 				<a href="/register">Register</a>
+			</span>
+			<span style="font-weight:bold;">&nbsp;/&nbsp;</span>
+			<span>
+				<a href="/wait">Random</a>
 			</span>
 		</div>
 		<h1>Chatting</h1>
