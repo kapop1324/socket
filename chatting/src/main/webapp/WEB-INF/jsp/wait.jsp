@@ -10,21 +10,15 @@
 </head>
 
 <script type="text/javascript">
-	var ws;
-
-	function wsOpen(){
-		//웹소켓 전송시 현재 방의 번호를 넘겨서 보낸다.
-		ws = new WebSocket("ws://" + location.host + "/chating/"+$("#roomNumber").val());
-		wsEvt();
-	}
+	
 	
 	var timer;
 	
 	window.onload = function(){
-		wsOpen();
-		var roomnum = {	roomnum : $('#roomNumber').val()	};
-		commonAjax('/rest/getmsg', roomnum, 'get', function(result){
-			msgappend(result);
+	
+		var loginid = {	loginid : $('#loginid').val()	};
+		commonAjax('/rest/enrollwait', loginid, 'post', function(result){
+			
 		});
 		
 		var delay = 10;
@@ -34,67 +28,42 @@
 		  timer = setInterval(function(){
 		        time++;
 
-		       
-
 		        document.getElementById("time").innerHTML = time;
+		       
+		        $.ajax({
+					url: '/rest/searchwait',
+					data: loginid,
+					type: 'get',
+					contentType:'application/x-www-form-urlencoded; charset=UTF-8',
+					success: function (res) {
+						clearInterval(timer);
+						document.getElementById("time").remove();
+						document.getElementById("result").innerHTML = "Matched!";
+						
+						
+					},
+					error : function(err){
+						
+						
+					}
+				});
 		      }, 1000);
 
 	}
-		
-	function wsEvt() {
-		ws.onopen = function(data){
-			//소켓이 열리면 동작
-		}
-		
-		
+	
+	window.onbeforeunload = function() {
 
-		document.addEventListener("keypress", function(e){
-			if(e.keyCode == 13){ //enter press
-				send();
-				
-			}
+		var loginid = {	loginid : $('#loginid').val()};
+		commonAjax('/rest/deletewait', loginid, 'post', function(result){
+			
 		});
 		
-		ws.onmessage = function(data) {
-			//메시지를 받으면 동작
-			var roomnum = {	roomnum : $('#roomNumber').val()	};
-			commonAjax('/rest/getmsg', roomnum, 'get', function(result){
-				msgappend(result);
-			});
-		}
-	}
-
-	function send() {
-		
-		var option ={
-			type: "message",
-			roomNumber: $("#roomNumber").val(),
-			sessionId : $("#sessionId").val(),
-			userName : $("#loginid").val(),
-			msg : $("#chatting").val()
-		}
-		ws.send(JSON.stringify(option))
-		$('#chatting').val("");
-	}
-	
-	
-
-	function msgappend(res){
-		
-		$("#chating").empty();
-		
-		for(var i =0; i < res.length; i++){
-		
-			if($("#loginid").val() == res[i]["user"]){
-				$("#chating").append("<p class='me'>나 : " + res[i]["msg"] + "</p>");	
-			}else{
-				$("#chating").append("<p class='others'>" + res[i]["user"] + " :" + res[i]["msg"] + "</p>");
-			}
-
-			
-		}
+		 return "매칭을포기하시겠습니까?";
 
 	}
+
+
+
 	
 	
 	function commonAjax(url, parameter, type, calbak, contentType){
@@ -123,7 +92,7 @@
 		<input type="hidden" id="roomNumber" value="${roomNumber}">
 		
 		<div>
-			<h1>Waiting...</h1>
+			<h1 id="result">Waiting...</h1>
 		</div>
 		<div>
 			<h2 id="time"></h2>

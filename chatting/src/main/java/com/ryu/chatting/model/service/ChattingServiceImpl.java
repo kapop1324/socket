@@ -58,4 +58,24 @@ public class ChattingServiceImpl implements ChattingService {
 		
 		return sqlsession.getMapper(ChattingDao.class).getmsg(map);
 	}
+
+	@Override
+	public void enrollwait(Map map) {
+		
+		sqlsession.getMapper(ChattingDao.class).enrollwait(map);
+	
+	}
+
+	@Override
+	public void deletewait(Map map) {
+
+		sqlsession.getMapper(ChattingDao.class).deletewait(map);
+		
+	}
+
+	@Override
+	public User searchwait(Map map) {
+		
+		return sqlsession.getMapper(ChattingDao.class).searchwait(map);
+	}
 }

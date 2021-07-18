@@ -21,5 +21,11 @@ public interface ChattingService {
 	public List<Room> getroom();
 	
 	public List<Chattinglog> getmsg(Map map);
+	
+	public void enrollwait(Map map);
+	
+	public void deletewait(Map map);
+	
+	public User searchwait(Map map);
 
 }

@@ -28,4 +28,16 @@
 		select * from chattinglog where roomnumber = #{roomnum}
 	</select>
 	
+	<insert id="enrollwait" parameterType="Map">
+		insert into wait(id) values(#{loginid})
+	</insert>
+	
+	<delete id="deletewait" parameterType="Map">
+		delete from wait where id = #{loginid}
+	</delete>
+	
+	<select id="searchwait" parameterType="Map" resultType="User">
+		select * from wait where id != #{loginid} order by regdate desc limit 1
+	</select>
+	
 </mapper>

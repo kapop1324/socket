@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -62,7 +63,7 @@ public class RestController {
 	
 	@GetMapping("/getRoom")
 	public ResponseEntity<List<Room>> getRoom(@RequestParam Map map){
-		System.out.println("?");
+		
 		roomList = chattingservice.getroom();
 		
 		return new ResponseEntity<List<Room>>(roomList,HttpStatus.OK);
@@ -74,6 +75,36 @@ public class RestController {
 		List<Chattinglog> chattinglog = chattingservice.getmsg(map);
 		
 		return new ResponseEntity<List<Chattinglog>>(chattinglog,HttpStatus.OK);
+	}
+	
+	@PostMapping("/enrollwait")
+	public ResponseEntity enrollwait(@RequestParam Map map){
+		
+		chattingservice.enrollwait(map);
+		
+		return new ResponseEntity(HttpStatus.OK);
+	}
+	
+	@PostMapping("/deletewait")
+	public ResponseEntity deletewait(@RequestParam Map map){
+
+		chattingservice.deletewait(map);
+		
+		return new ResponseEntity(HttpStatus.OK);
+	}
+	
+	@GetMapping("/searchwait")
+	public ResponseEntity searchwait(@RequestParam Map map){
+		
+		User match = chattingservice.searchwait(map);
+		System.out.println(match);
+		if( match != null) {
+			return new ResponseEntity(HttpStatus.OK);
+		}else {
+			return new ResponseEntity(HttpStatus.BAD_REQUEST);
+		}
+		
+		
 	}
 	
 
