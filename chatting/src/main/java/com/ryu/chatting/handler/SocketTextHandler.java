@@ -54,7 +54,11 @@ public class SocketTextHandler extends TextWebSocketHandler{
 			hashmap.put("user", (String) obj.get("userName"));
 			hashmap.put("msg", (String) obj.get("msg"));
 			
-			chattingService.chattinglog(hashmap);
+			
+				chattingService.chattinglog(hashmap);
+			
+			
+			
 			
 			//해당 방의 세션들만 찾아서 메시지를 발송해준다.
 			for(String k : temp.keySet()) { 
@@ -83,6 +87,7 @@ public class SocketTextHandler extends TextWebSocketHandler{
 		String url = session.getUri().toString();
 		String roomNumber = url.split("/chating/")[1];
 		int idx = rls.size(); //방의 사이즈를 조사한다.
+		System.out.println(idx);
 		if(rls.size() > 0) {
 			for(int i=0; i<rls.size(); i++) {
 				String rN = (String) rls.get(i).get("roomNumber");

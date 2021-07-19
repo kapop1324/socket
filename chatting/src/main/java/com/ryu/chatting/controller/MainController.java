@@ -37,6 +37,12 @@ public class MainController {
 			return "chat";
 		}
 		
+		@GetMapping("/randomchat")
+		public String randomchat() {
+			
+			return "randomchat";
+		}
+		
 		@GetMapping("/logout")
 		public String logout(HttpServletRequest request) {
 			

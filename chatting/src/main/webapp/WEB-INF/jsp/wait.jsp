@@ -40,7 +40,9 @@
 						document.getElementById("time").remove();
 						document.getElementById("result").innerHTML = "Matched!";
 						
-						
+						setInterval(function() {
+							location.href="/moveChating?roomNumber=0";
+						}, 5000);
 					},
 					error : function(err){
 						
