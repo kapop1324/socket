@@ -27,5 +27,9 @@ public interface ChattingDao {
 	public void deletewait(Map map);
 	
 	public User searchwait(Map map);
+	
+	public Room searchrandomroom(Map map);
+	
+	public void makerandomroom(Map map);
 
 }

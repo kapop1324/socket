@@ -40,4 +40,12 @@
 		select * from wait where id != #{loginid} order by regdate desc limit 1
 	</select>
 	
+	<select id="searchrandomroom" parameterType="Map" resultType="Room">
+		select * from room where random = 'random'and master != #{id} limit 1;
+	</select>
+	
+	<insert id="makerandomroom" parameterType="Map">
+		insert into room(title,master,random) values('random',#{id},'random')
+	</insert>
+	
 </mapper>

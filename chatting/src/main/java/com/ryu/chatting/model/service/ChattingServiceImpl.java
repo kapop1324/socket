@@ -78,4 +78,16 @@ public class ChattingServiceImpl implements ChattingService {
 		
 		return sqlsession.getMapper(ChattingDao.class).searchwait(map);
 	}
+
+	@Override
+	public Room searchrandomroom(Map map) {
+		
+		return sqlsession.getMapper(ChattingDao.class).searchrandomroom(map);
+	}
+
+	@Override
+	public void makerandomroom(Map map) {
+		 sqlsession.getMapper(ChattingDao.class).makerandomroom(map);
+		
+	}
 }

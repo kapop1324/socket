@@ -17,12 +17,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ryu.chatting.model.Chattinglog;
 import com.ryu.chatting.model.Room;
 import com.ryu.chatting.model.User;
+import com.ryu.chatting.model.User2;
 import com.ryu.chatting.model.service.ChattingService;
 
 
@@ -97,12 +99,42 @@ public class RestController {
 	public ResponseEntity searchwait(@RequestParam Map map){
 		
 		User match = chattingservice.searchwait(map);
-		System.out.println(match);
+		
 		if( match != null) {
 			return new ResponseEntity(HttpStatus.OK);
 		}else {
 			return new ResponseEntity(HttpStatus.BAD_REQUEST);
 		}
+		
+		
+	}
+	
+	@GetMapping("/searchrandomroom")
+	public ResponseEntity<?> searchrandomroom(@RequestParam Map map){
+		
+		
+		Room random = chattingservice.searchrandomroom(map);
+		
+		if( random != null) {
+			System.out.println("방이있음!");
+			return new ResponseEntity<Room>(random,HttpStatus.OK);
+		}else {
+			
+			return new ResponseEntity(HttpStatus.BAD_GATEWAY);
+		}
+		
+		
+	}
+	
+	@PostMapping("/makerandomroom")
+	public ResponseEntity<?> makerandomroom(@RequestParam Map map){
+		
+		
+		System.out.println("만들러옴");
+		chattingservice.makerandomroom(map);
+		
+		return new ResponseEntity(HttpStatus.OK);
+		
 		
 		
 	}

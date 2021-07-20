@@ -11,7 +11,15 @@
 
 <script type="text/javascript">
 	var ws;
-
+	var roomnum;
+	
+	function getParameterByName(name) {
+	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	        results = regex.exec(location.search);
+	    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+	
 	function wsOpen(){
 		//웹소켓 전송시 현재 방의 번호를 넘겨서 보낸다.
 		ws = new WebSocket("ws://" + location.host + "/chating/"+$("#roomNumber").val());
@@ -20,10 +28,51 @@
 	
 	window.onload = function(){
 		wsOpen();
-		var roomnum = {	roomnum : $('#roomNumber').val()	};
-		commonAjax('/rest/getmsg', roomnum, 'get', function(result){
-			msgappend(result);
-		});
+		
+		roomnum = getParameterByName('roomNumber');
+		
+		if(roomnum === '0'){
+			
+			
+			$.ajax({
+				url: '/rest/searchrandomroom',
+				data: {
+					id : $("#loginid").val()
+				},
+				
+				type: 'get',
+				contentType:'application/x-www-form-urlencoded; charset=UTF-8',
+				success: function (res) {
+					
+					
+				},
+				error : function(err){
+					$.ajax({
+						url: '/rest/makerandomroom',
+						data: {
+							id : $("#loginid").val()
+						},
+						
+						type: 'post',
+						contentType:'application/x-www-form-urlencoded; charset=UTF-8',
+						success: function (res) {
+							
+							
+						},
+						error : function(err){
+							
+							
+						}
+					});
+					
+				}
+			});
+		}else{
+			commonAjax('/rest/getmsg', roomnum, 'get', function(result){
+				msgappend(result);
+			});
+		}
+
 
 	}
 		

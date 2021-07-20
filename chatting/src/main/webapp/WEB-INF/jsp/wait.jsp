@@ -42,7 +42,7 @@
 						
 						setInterval(function() {
 							location.href="/moveChating?roomNumber=0";
-						}, 5000);
+						}, 3000);
 					},
 					error : function(err){
 						

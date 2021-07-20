@@ -4,6 +4,15 @@ public class Room {
 	
 	int roomNumber;
 	String roomName;
+	String random;
+	
+	
+	public String getRandom() {
+		return random;
+	}
+	public void setRandom(String random) {
+		this.random = random;
+	}
 	public int getRoomNumber() {
 		return roomNumber;
 	}

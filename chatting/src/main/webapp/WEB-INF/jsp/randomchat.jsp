@@ -20,10 +20,9 @@
 	
 	window.onload = function(){
 		wsOpen();
-		var roomnum = {	roomnum : $('#roomNumber').val()	};
-		commonAjax('/rest/getmsg', roomnum, 'get', function(result){
-			msgappend(result);
-		});
+		var israndomroom = false;
+	
+		 
 
 	}
 		
