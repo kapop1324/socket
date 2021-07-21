@@ -117,7 +117,8 @@ public class RestController {
 		
 		if( random != null) {
 			System.out.println("방이있음!");
-			return new ResponseEntity<Room>(random,HttpStatus.OK);
+			Integer randomroomnumber = chattingservice.getrandomroomnumber2(map);
+			return new ResponseEntity<Integer>(randomroomnumber,HttpStatus.OK);
 		}else {
 			
 			return new ResponseEntity(HttpStatus.BAD_GATEWAY);
@@ -132,12 +133,33 @@ public class RestController {
 		
 		System.out.println("만들러옴");
 		chattingservice.makerandomroom(map);
+		Integer randomroomnumber = chattingservice.getrandomroomnumber(map);
+		System.out.println(randomroomnumber);
+		if(randomroomnumber != null) {
+			return new ResponseEntity<Integer>(randomroomnumber,HttpStatus.OK);
+		}else {
+			return new ResponseEntity(HttpStatus.BAD_GATEWAY);
+		}
+		
+		
+		
+		
+		
+	}
+	
+	@PostMapping("/deleterandomroom")
+	public ResponseEntity<?> deleterandomroom(@RequestParam Map map){
+		
+		
+		System.out.println("만들러옴");
+		chattingservice.deleterandomroom(map);
 		
 		return new ResponseEntity(HttpStatus.OK);
 		
 		
 		
 	}
+	
 	
 
 

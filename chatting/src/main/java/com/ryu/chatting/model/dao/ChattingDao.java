@@ -31,5 +31,11 @@ public interface ChattingDao {
 	public Room searchrandomroom(Map map);
 	
 	public void makerandomroom(Map map);
+	
+	public Integer  getrandomroomnumber(Map map);
+	
+	public Integer  getrandomroomnumber2(Map map);
+	
+	public void deleterandomroom(Map map);
 
 }

@@ -12,7 +12,7 @@
 <script type="text/javascript">
 	var ws;
 	var roomnum;
-	
+	var randomnum;
 	function getParameterByName(name) {
 	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
 	    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -20,14 +20,10 @@
 	    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 	}
 	
-	function wsOpen(){
-		//웹소켓 전송시 현재 방의 번호를 넘겨서 보낸다.
-		ws = new WebSocket("ws://" + location.host + "/chating/"+$("#roomNumber").val());
-		wsEvt();
-	}
+	
 	
 	window.onload = function(){
-		wsOpen();
+	
 		
 		roomnum = getParameterByName('roomNumber');
 		
@@ -39,11 +35,11 @@
 				data: {
 					id : $("#loginid").val()
 				},
-				
+				async: false,
 				type: 'get',
 				contentType:'application/x-www-form-urlencoded; charset=UTF-8',
 				success: function (res) {
-					
+					randomnum = res;
 					
 				},
 				error : function(err){
@@ -52,11 +48,11 @@
 						data: {
 							id : $("#loginid").val()
 						},
-						
+						async: false,
 						type: 'post',
 						contentType:'application/x-www-form-urlencoded; charset=UTF-8',
 						success: function (res) {
-							
+							randomnum = res;
 							
 						},
 						error : function(err){
@@ -67,13 +63,39 @@
 					
 				}
 			});
+			
+			roomnum = randomnum;
 		}else{
 			commonAjax('/rest/getmsg', roomnum, 'get', function(result){
 				msgappend(result);
 			});
 		}
+		document.getElementById("roomNumber").value = roomnum;
+		document.getElementById("head").innerHTML=roomnum;
 
 
+		wsOpen();
+	}
+	
+	window.onbeforeunload = function() {
+
+		var loginid = {	loginid : $('#loginid').val()};
+		commonAjax('/rest/deleterandomroom', loginid, 'post', function(result){
+			
+		});
+		
+		 return "나가시겠습니까?";
+
+	}
+	
+	function wsOpen(){
+		//웹소켓 전송시 현재 방의 번호를 넘겨서 보낸다.
+		
+			ws = new WebSocket("ws://" + location.host + "/chating/"+roomnum);
+		
+		
+		
+		wsEvt();
 	}
 		
 	function wsEvt() {
@@ -156,7 +178,7 @@
 		<input type="hidden" id="loginid" value="${loginuser.id }">
 		<input type="hidden" id="sessionId" value="">
 		<input type="hidden" id="roomNumber" value="${roomNumber}">
-		<h1>${roomName}</h1>
+		<h1 id="head">${roomNumber}</h1>
 		
 			<div id="chating" class="chating">
 		

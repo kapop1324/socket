@@ -90,4 +90,22 @@ public class ChattingServiceImpl implements ChattingService {
 		 sqlsession.getMapper(ChattingDao.class).makerandomroom(map);
 		
 	}
+
+	@Override
+	public void deleterandomroom(Map map) {
+		sqlsession.getMapper(ChattingDao.class).deleterandomroom(map);
+		
+	}
+
+	@Override
+	public Integer getrandomroomnumber(Map map) {
+		
+		return sqlsession.getMapper(ChattingDao.class).getrandomroomnumber(map);
+	}
+	
+	@Override
+	public Integer getrandomroomnumber2(Map map) {
+		
+		return sqlsession.getMapper(ChattingDao.class).getrandomroomnumber2(map);
+	}
 }

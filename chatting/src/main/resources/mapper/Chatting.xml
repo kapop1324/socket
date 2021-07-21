@@ -21,7 +21,7 @@
 	</insert>
 	
 	<select id="getroom" resultType="Room">
-		select * from room;
+		select * from room where random != 'random';
 	</select>
 	
 	<select id="getmsg" parameterType="Map" resultType="Chattinglog">
@@ -47,5 +47,17 @@
 	<insert id="makerandomroom" parameterType="Map">
 		insert into room(title,master,random) values('random',#{id},'random')
 	</insert>
+	
+	<delete id="deleterandomroom" parameterType="Map">
+		delete from room where master = #{loginid} and random = 'random'
+	</delete>
+	
+	<select id="getrandomroomnumber" parameterType="Map" resultType="Integer">
+		select idx from room where master = #{id} and random = 'random'
+	</select>
+	
+	<select id="getrandomroomnumber2" parameterType="Map" resultType="Integer">
+		select idx from room where random = 'random' limit 1;
+	</select>
 	
 </mapper>
